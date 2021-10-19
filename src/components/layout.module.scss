@@ -3,6 +3,24 @@
   min-height: 100vh;
   &--dark{
     background: #4751c0;
+    .pattern1{
+        position: absolute;
+        top: 10%;
+    }
+    .pattern2{
+        position: absolute;
+        bottom: 0;
+    }
+    .pattern3{
+        position: absolute;
+        right: 0;
+        top: 7%;
+    }
+    .pattern4{
+        position: absolute;
+        right: 0;
+        bottom: 5%;
+    }
   }
   &--light{
     background: #ffffff; 
