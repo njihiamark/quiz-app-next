@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 
 const WelcomePage: NextPage = () => {
     return(
-        <Layout theme="light">
+        <Layout theme="dark">
             Welcome page
         </Layout>
         

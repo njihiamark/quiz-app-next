@@ -3,44 +3,42 @@
   min-height: 100vh;
   &--dark{
     background: #4751c0;
-    .pattern1{
+    .pattern{
         position: absolute;
-        top: 10%;
-    }
-    .pattern2{
-        position: absolute;
-        bottom: 0;
-    }
-    .pattern3{
-        position: absolute;
-        right: 0;
-        top: 7%;
-    }
-    .pattern4{
-        position: absolute;
-        right: 0;
-        bottom: 5%;
+        &__pattern1{
+            top: 10%;
+        }
+        &__pattern2{
+            bottom: 0;
+        }
+        &__pattern3{
+            right: 0;
+            top: 7%;
+        }
+        &__pattern4{
+            right: 0;
+            bottom: 5%;
+        }
     }
   }
   &--light{
     background: #ffffff; 
-    .pattern1{
+    .pattern{
         position: absolute;
-        top: 0;
-    }
-    .pattern2{
-        position: absolute;
-        bottom: 0;
-    }
-    .pattern3{
-        position: absolute;
-        right: 0;
-        top: 10%;
-    }
-    .pattern4{
-        position: absolute;
-        right: 0;
-        bottom: 0;
+        &__pattern1{
+            top: 0;
+        }
+        &__pattern2{
+            bottom: 0;
+        }
+        &__pattern3{
+            right: 0;
+            top: 10%;
+        }
+        &__pattern4{
+            right: 0;
+            bottom: 0;
+        } 
     }
   }
 }
