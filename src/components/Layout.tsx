@@ -17,9 +17,9 @@ const Layout = ({ children, title = 'Quiz app', theme = "dark" }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <div className={styles["app"]+` ${theme === "light" ? styles["app--light"] : styles["app--dark"]}`}>
-        <div className={styles["pattern"]+" "+styles["pattern__pattern1"]}>pattern1</div>
-        <div className={styles["pattern"]+" "+styles["pattern__pattern2"]}>pattern2</div>
-        <div className={styles["pattern"]+" "+styles["pattern__pattern3"]}>pattern3</div>
+        <div className={styles["pattern"]+" "+styles["pattern__pattern1"]}></div>
+        <div className={styles["pattern"]+" "+styles["pattern__pattern2"]}></div>
+        <div className={styles["pattern"]+" "+styles["pattern__pattern3"]}></div>
         <div className={styles["pattern"]+" "+styles["pattern__pattern4"]}>pattern4</div>
         <div className="container">
             {children}
