@@ -8,7 +8,7 @@ type Props = {
   title?: string,
   theme?: string,
 }
-console.log(styles);
+
 const Layout = ({ children, title = 'Quiz app', theme = "dark" }: Props) => (  
   <div>
     <Head>
