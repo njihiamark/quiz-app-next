@@ -7,7 +7,7 @@ const WelcomePage: NextPage = () => {
     return(
         <Layout theme="dark">
             Welcome page
-            <Button label="okay" type="filled" />
+            <Button label="okay" type="filled" theme="dark" />
         </Layout>
         
     );
