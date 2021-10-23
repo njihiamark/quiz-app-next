@@ -21,7 +21,7 @@ const Layout = ({ children, title = 'Quiz app', theme = "dark" }: Props) => (
         <div className={styles["pattern"]+" "+styles["pattern__pattern2"]}></div>
         <div className={styles["pattern"]+" "+styles["pattern__pattern3"]}></div>
         <div className={styles["pattern"]+" "+styles["pattern__pattern4"]}></div>
-        <div className="container">
+        <div className={styles["container"]}>
             {children}
         </div>
     </div>
