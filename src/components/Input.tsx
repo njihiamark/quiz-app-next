@@ -15,7 +15,7 @@ type Props = {
 
 const Input =({iconUrl="", label="", placeholder="",onChange= () => {}, type="text", value="", theme="dark"}: Props) => (
     <label>
-        <div><Image src={iconUrl} width={40} height={40} /> {label} </div>
+        <div className={styles["label-container"]}><Image src={iconUrl} width={40} height={40} /> <span className="ml-1">{label}</span> </div>
         <input type={type} onChange={onChange} value={value} placeholder={placeholder} className={styles["outline-input"]+` ${theme === "light" ? styles["outline-input--light"] : styles["outline-input--dark"]}`}/>
     </label>
 );

@@ -1,18 +1,26 @@
 .outline-input {
-    width: 100%;
-    padding: 2.2rem 1.5rem;
-    display: inline-block;
-    outline: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    background: transparent;
-    margin-bottom: 1rem;
-    &--dark {
-        border: 1px solid #ffffff;
-        color: #ffffff;
-    }
-    &--light {
-        border: 1px solid #424A9E;
-        color: #424A9E;
-    }
+  width: 100%;
+  padding: 2.2rem 1.5rem;
+  display: inline-block;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  background: transparent;
+  margin-bottom: 1rem;
+  &--dark {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+  &--light {
+    border: 1px solid #424a9e;
+    color: #424a9e;
+  }
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #f7a491;
+  margin-bottom: 1rem;
 }
