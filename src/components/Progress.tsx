@@ -10,9 +10,9 @@ type Props = {
 
 const Progress = () => (
     <>
-    <div className={styles["progress-label"]}><span className={styles["status"]}>08</span>/10</div>
+    <div className={styles["progress-label"]}><span className={styles["progress__status"]}>08</span>/10</div>
     <div className={styles["progress"]}>
-        <div className={styles["progress-bar"]} style={{width:"80%"}}></div>
+        <div className={styles["progress__bar"]} style={{width:"80%"}}></div>
     </div>
     </>
     

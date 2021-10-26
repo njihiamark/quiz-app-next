@@ -5,7 +5,7 @@
   background: #dbdeff;
   border-radius: 3px;
   overflow: hidden;
-  .progress-bar {
+  .progress__bar {
     display: block;
     height: 100%;
     background: linear-gradient(180deg, #ff7878 0%, #ff7878 100%);
@@ -17,7 +17,7 @@
     line-height: 1.5;
     font-size: 0.9rem;
     font-weight: 500;
-    .status{
+    .progress__status{
         font-size: 1.2rem;
         color: #ff7878;
         font-weight: 700;
