@@ -1,8 +1,10 @@
 .button {
   cursor: pointer;
   text-align: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
-  padding: 2.2rem 1.5rem;
+  padding: 1.7rem;
   width: 100%;
   border-radius: 14px;
   font-size: 16px;
@@ -12,6 +14,14 @@
   text-transform: uppercase;
   &--dark {
     &--filled {
+      background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(#ffa67a),
+        to(#ff6065)
+      );
+      background: -o-linear-gradient(left, #ffa67a 0%, #ff6065 100%);
       background: linear-gradient(90deg, #ffa67a 0%, #ff6065 100%);
       border: 1px solid #ff6065;
       color: #fff;
