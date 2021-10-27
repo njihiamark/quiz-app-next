@@ -11,7 +11,6 @@ type Props = {
     value?: string
 }
 
-console.log(styles);
 
 function Select({iconUrl="", label="",onChange= () => {}, value="", theme="dark"}: Props) {
     return (
