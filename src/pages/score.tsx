@@ -1,8 +1,13 @@
 import type { NextPage } from 'next';
+import Layout from '../components/Layout';
+import ScoreCard from '../components/ScoreCard';
 
 const ScorePage: NextPage = () => {
     return(
-        <div>Score page</div>
+        <Layout theme="dark">
+            <div>Score page</div>
+            <ScoreCard />
+        </Layout>
     );
 
 }

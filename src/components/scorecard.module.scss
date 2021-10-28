@@ -1,0 +1,18 @@
+.score-card {
+  padding: 20px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  &--pass{
+    background-color: #ffffff;
+  }
+  &--fail{
+    background-color: #FFDBDB;
+  }
+  .score-card__mark {
+    margin-left: auto;
+    order: 2;
+  }
+}
