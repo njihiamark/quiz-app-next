@@ -3,14 +3,15 @@ import styles from './scorecard.module.scss';
 import Image from 'next/image';
 
 type Props = {
-    
+    desc: string,
+    status: string,
 }
 
 console.log(styles);
-const ScoreCard =() => (
-    <div className={styles["score-card"]+" "+styles["score-card--fail"]}>
-        The retail disc of Tony Hawk’s Pro Skater 5 only comes with the tutorial.
-        <span className={styles["score-card__mark"]}><Image src="/images/tick.svg" width={20} height={15} /></span>
+const ScoreCard =({desc = "", status = ""}: Props) => (
+    <div className={styles["score-card"]+` ${status === "pass" ? styles["score-card--pass"] : styles["score-card--fail"]}`}>
+        {desc}
+        <span className={styles["score-card__mark"]}>{status === "pass" ? <Image src="/images/tick.svg" width={20} height={15} /> : <Image src="/images/cross.svg" width={15} height={15} />}</span>
     </div>
 );
 

@@ -6,7 +6,7 @@ const ScorePage: NextPage = () => {
     return(
         <Layout theme="dark">
             <div>Score page</div>
-            <ScoreCard />
+            <ScoreCard desc="In “Metal Gear Solid 2”, you will see through the eyes of Psycho Mantis if you go first person during his boss fight." status="fail"/>
         </Layout>
     );
 
