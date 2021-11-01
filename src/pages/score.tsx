@@ -6,7 +6,7 @@ import Score from '../components/Score';
 const ScorePage: NextPage = () => {
     return(
         <Layout theme="dark">
-            <Score />
+            <Score page_url = "welcome" score={8} max_score={10} />
             <ScoreCard desc="In “Metal Gear Solid 2”, you will see through the eyes of Psycho Mantis if you go first person during his boss fight." status="fail"/>
         </Layout>
     );
