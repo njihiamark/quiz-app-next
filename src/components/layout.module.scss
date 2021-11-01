@@ -3,6 +3,7 @@
   min-height: 100vh;
   &--dark {
     background: #4751c0;
+    color: #ffffff;
     .pattern {
       position: absolute;
       &__pattern1 {
@@ -49,6 +50,8 @@
   }
   &--light {
     background: #ffffff;
+    color: #464fac;
+
     .pattern {
       position: absolute;
       &__pattern1 {
