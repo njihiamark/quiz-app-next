@@ -1,0 +1,47 @@
+.outline-input {
+  width: 100%;
+  padding: 1.5rem;
+  display: inline-block;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background: transparent;
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 6px 6px 13px -1px rgba(23, 21, 92, 0.06);
+  box-shadow: 6px 6px 13px -1px rgba(23, 21, 92, 0.06);
+  &--dark {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+  &--light {
+    border: 1px solid #424a9e;
+    color: #424a9e;
+  }
+}
+
+.label-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #f7a491;
+  margin-bottom: 1rem;
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1em);
+  background-size: 0.9em;
+  &--dark{
+    background-image: url("/../images/down-carret-white.svg");
+  }
+  &--light{
+    background-image: url("/../images/down-carret-purple.svg");
+  }
+}
