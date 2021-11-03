@@ -71,6 +71,9 @@
   &.nineth::after {
     width: 90%;
   }
+  &.almost-tenth::after {
+    width: 96%;
+  }
   &.tenth::after {
     width: 100%;
   }
