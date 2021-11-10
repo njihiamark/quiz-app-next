@@ -27,6 +27,7 @@ const WelcomePage: NextPage = () => {
                 <Input type="number" placeholder="Enter amount" iconUrl="/images/star-icon.svg" label="Amount" theme="dark" value={Amount} onChange={handleAmountChange} />
                 <div className="mb-4"></div>
                 <Button label="okay" type="filled" theme="dark" />
+                <div className="mb-1"></div>
             </div>
         </Layout>
 
