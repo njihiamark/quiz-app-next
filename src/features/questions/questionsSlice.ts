@@ -21,7 +21,8 @@ export type QuestionsState = {
   total_qns: number;
   answered: number;
   answered_correctly: number;
-  difficulty: string;
+  difficulty_setting: string;
+  amount_setting: number;
   pending: boolean;
   error: boolean;
 };
@@ -33,7 +34,8 @@ const initialState: QuestionsState = {
   total_qns: 0,
   answered: 0,
   answered_correctly: 0,
-  difficulty: "easy",
+  difficulty_setting: "easy",
+  amount_setting: 0,
   pending: false,
   error: false,
 };
