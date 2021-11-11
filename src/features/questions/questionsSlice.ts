@@ -17,7 +17,7 @@ export type Question = {
 
 //define how the state of this slice will look like
 export type QuestionsState = {
-  data: Question[];
+  data?: Question[];
   total_qns: number;
   answered: number;
   answered_correctly: number;
@@ -43,16 +43,19 @@ const initialState: QuestionsState = {
 //function to get the questions from third party API
 export const getQuestions = createAsyncThunk(
   "questions/getQuestions",
-  async (amount, difficulty) => {
+  async (settingsObject: { Amount: number, Difficulty: string }) => {
+    const {Amount, Difficulty} = settingsObject;
     const response = await axios.get(
-      `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=boolean`
+      `https://opentdb.com/api.php?amount=${Amount}&difficulty=${Difficulty}&type=boolean`
     );
 
+
     let count = 0;
-    const processedData = await response.data?.map((item) => {
+    const processedData = response.data.results?.map((item) => {
       item.id = ++count;
       item.answered_correctly = false;
       item.answered = false;
+      return item;
     });
 
     return processedData;
@@ -70,10 +73,11 @@ export const questionSlice = createSlice({
       .addCase(getQuestions.pending, (state) => {
         state.pending = true;
       })
-      .addCase(getQuestions.fulfilled, (state, { payload }) => {
+      .addCase(getQuestions.fulfilled, (state, {payload} ) => {
         // When the API call is successful and we get some data,the data becomes the `fulfilled` action payload
         state.pending = false;
         state.data = payload;
+
       })
       .addCase(getQuestions.rejected, (state) => {
         state.pending = false;
