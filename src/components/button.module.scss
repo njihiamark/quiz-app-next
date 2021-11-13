@@ -30,7 +30,6 @@
       background: transparent;
       border: 1px solid #ffffff;
       color: #ffffff;
-      margin: 30px;
     }
   }
   &--light {
@@ -38,13 +37,13 @@
       background: #424a9e;
       border: 1px solid #424a9e;
       color: #fff;
-      margin: 30px;
+      font-weight: 600;
     }
     &--outline {
       background: #ffffff;
-      border: 1px solid #424a9e;
+      border: 2px solid #424a9e;
       color: #424a9e;
-      margin: 30px;
+      font-weight: 600;
     }
   }
 }

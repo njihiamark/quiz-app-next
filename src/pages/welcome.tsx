@@ -55,7 +55,7 @@ const WelcomePage: NextPage = () => {
             return;
         }
         dispatch(getQuestions({ Amount, Difficulty }));
-        router.push('/play', undefined, { shallow: true })
+        router.push('/play/1', undefined, { shallow: true })
     }
 
     return (
