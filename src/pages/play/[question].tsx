@@ -13,13 +13,19 @@ import { useAppSelector } from '../../app/hooks';
 const PlayPage: NextPage = () => {
     const router = useRouter();
     const {
-        error
+        error,
+        data,
+        pending
     } = useAppSelector(selectQuestions);
     useEffect(() => {
         if (error) {
             router.push('/welcome', undefined, { shallow: true })
         }
-    });
+        if (!data.length && !pending) {
+            router.push('/welcome', undefined, { shallow: true })
+        }
+    }, [data, pending]);
+    
     return (
         <Layout theme="light">
             <div className="w-33-auto">
