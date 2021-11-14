@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { AppState, AppThunk } from "../../app/store";
 import axios from "axios";
 
@@ -26,6 +26,11 @@ export type QuestionsState = {
   pending: boolean;
   error: boolean;
 };
+
+type QuizSetting = {
+  difficulty_setting: string;
+  amount_setting: number;
+}
 
 
 //initialize the initial state
@@ -67,7 +72,12 @@ export const getQuestions = createAsyncThunk(
 export const questionSlice = createSlice({
   name: "question",
   initialState,
-  reducers: {},
+  reducers: {
+    quizSettings: (state, action: PayloadAction<QuizSetting>) => {
+      state.difficulty_setting = action.payload.difficulty_setting;
+      state.amount_setting = action.payload.amount_setting;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getQuestions.pending, (state) => {
@@ -85,6 +95,11 @@ export const questionSlice = createSlice({
       });
   },
 });
+
+// Here we are just exporting the actions from this slice, so that we can call them anywhere in our app.
+export const {
+  quizSettings
+} = questionSlice.actions;
 
 //this helps us get the questions state anywere in the app
 export const selectQuestions = (state: AppState) => state.questions;

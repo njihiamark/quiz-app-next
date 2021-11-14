@@ -7,7 +7,7 @@ import Select from '../components/Select';
 import Layout from '../components/Layout';
 import WelcomeHeader from '../components/WelcomeHeader';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { getQuestions, selectQuestions } from '../features/questions/questionsSlice';
+import { getQuestions, selectQuestions, quizSettings } from '../features/questions/questionsSlice';
 import { useRouter } from 'next/router';
 
 const WelcomePage: NextPage = () => {
@@ -54,6 +54,7 @@ const WelcomePage: NextPage = () => {
         if (Difficulty == "" || Amount <= 0) {
             return;
         }
+        dispatch(quizSettings({ amount_setting:Amount, difficulty_setting:Difficulty }));
         dispatch(getQuestions({ Amount, Difficulty }));
         router.push('/play/1', undefined, { shallow: true })
     }

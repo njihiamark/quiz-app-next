@@ -15,7 +15,8 @@ const PlayPage: NextPage = () => {
     const {
         error,
         data,
-        pending
+        pending,
+        difficulty_setting
     } = useAppSelector(selectQuestions);
     useEffect(() => {
         if (error) {
@@ -29,7 +30,7 @@ const PlayPage: NextPage = () => {
     return (
         <Layout theme="light">
             <div className="w-33-auto">
-                <PlayHeader />
+                <PlayHeader difficulty_setting={difficulty_setting}/>
                 <div className="mb-2"></div>
                 <Progress current_qn={8} total_qns={10} />
                 <Button label="true" type="filled" theme="light" />
