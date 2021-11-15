@@ -7,7 +7,7 @@ import Progress from '../components/Progress';
 import Button from '../components/Button';
 import PlayHeader from '../components/PlayHeader';
 import { selectQuestions, showQuestion } from '../features/questions/questionsSlice';
-import { useAppSelector, useAppDispatch} from '../app/hooks';
+import { useAppSelector, useAppDispatch } from '../app/hooks';
 
 
 const PlayPage: NextPage = () => {
@@ -37,21 +37,24 @@ const PlayPage: NextPage = () => {
     }, [data, pending]);
 
     const handleAnswering = (value) => {
-        setCurrentQn(CurrentQn+1);
-        setAnsweredQn(AnsweredQn+1);
+        setCurrentQn(CurrentQn + 1);
+        setAnsweredQn(AnsweredQn + 1);
         dispatch(showQuestion(Number(CurrentQn)));
     }
-    
+
     return (
         <Layout theme="light">
             <div className="w-33-auto">
-                <PlayHeader difficulty_setting={difficulty_setting}/>
+                <PlayHeader difficulty_setting={difficulty_setting} />
                 <div className="mb-2"></div>
                 <Progress current_qn={AnsweredQn} total_qns={amount_setting} qn_text={current_qn.question} />
-                <Button label="true" type="filled" theme="light" onClick={()=>{handleAnswering(true)}}  />
-                <div className="mb-2"></div>
-                <Button label="false" type="outline" theme="light" onClick={()=>{handleAnswering(false)}} />
-                <div className="mb-1"></div>
+                {data.length > 0 && !pending && <div>
+                    <Button label="true" type="filled" theme="light" onClick={() => { handleAnswering(true) }} />
+                    <div className="mb-2"></div>
+                    <Button label="false" type="outline" theme="light" onClick={() => { handleAnswering(false) }} />
+                    <div className="mb-1"></div>
+                </div>}
+
             </div>
         </Layout>
     );
