@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './progress.module.scss';
+import ReactHtmlParser from 'react-html-parser';
 
 type Props = {
     current_qn: number,
-    total_qns: number
+    total_qns: number,
+    qn_text: string,
 }
 
-const Progress = ({ current_qn = 1, total_qns = 10 }: Props) => {
+const Progress = ({ current_qn = 1, total_qns = 10, qn_text = ""}: Props) => {
     const raw_percentage = (current_qn/total_qns) * 100;
     const floored_percentage = (raw_percentage);
     return (
@@ -16,7 +18,7 @@ const Progress = ({ current_qn = 1, total_qns = 10 }: Props) => {
                 <div className={styles["progress__bar"]} style={{ width: `${floored_percentage}%` }}></div>
             </div>
             <div className="mb-3"></div>
-            <div className={styles["question-text"]}>The retail disc of Tony Hawk’s Pro Skater 5 only comes with the tutorial</div>
+            <div className={styles["question-text"]}>{ReactHtmlParser(qn_text)}</div>
             <div className="mb-3"></div>
         </>
     )
