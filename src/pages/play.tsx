@@ -32,14 +32,15 @@ const PlayPage: NextPage = () => {
             router.push('/welcome', undefined, { shallow: true })
         }
         if (data.length > 0 && !pending) {
-            dispatch(showQuestion(Number(CurrentQn)));
+            dispatch(showQuestion({ questionNo: CurrentQn, answer: "" }));
         }
     }, [data, pending]);
 
-    const handleAnswering = (value) => {
+    const handleAnswering = (answer:string) => {
+        console.log("clicked");
         setCurrentQn(CurrentQn + 1);
         setAnsweredQn(AnsweredQn + 1);
-        dispatch(showQuestion(Number(CurrentQn)));
+        dispatch(showQuestion({ questionNo: CurrentQn, answer: answer }));
     }
 
     return (
@@ -48,12 +49,12 @@ const PlayPage: NextPage = () => {
                 <PlayHeader difficulty_setting={difficulty_setting} />
                 <div className="mb-2"></div>
                 <Progress current_qn={AnsweredQn} total_qns={amount_setting} qn_text={current_qn.question} />
-                {data.length > 0 && !pending && <div>
-                    <Button label="true" type="filled" theme="light" onClick={() => { handleAnswering(true) }} />
+                {data.length > 0 && !pending ? <div>
+                    <Button label="true" type="filled" theme="light" onClick={(e) => { e.preventDefault(); handleAnswering("True"); }} />
                     <div className="mb-2"></div>
-                    <Button label="false" type="outline" theme="light" onClick={() => { handleAnswering(false) }} />
+                    <Button label="false" type="outline" theme="light" onClick={(e) => { e.preventDefault(); handleAnswering("False"); }} />
                     <div className="mb-1"></div>
-                </div>}
+                </div>: <div>loading...</div>}
 
             </div>
         </Layout>

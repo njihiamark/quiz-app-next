@@ -33,6 +33,11 @@ type QuizSetting = {
   amount_setting: number;
 }
 
+type QuizAnswer = {
+  questionNo: number;
+  answer: string;
+}
+
 
 //initialize the initial state
 const initialState: QuestionsState = {
@@ -87,9 +92,18 @@ export const questionSlice = createSlice({
       state.difficulty_setting = action.payload.difficulty_setting;
       state.amount_setting = action.payload.amount_setting;
     },
-    showQuestion: (state, action: PayloadAction<number>) => {
-      const question_index = state.data.findIndex((obj => obj.id == action.payload));
+    showQuestion: (state, action: PayloadAction<QuizAnswer >) => {
+      const question_index = state.data.findIndex((obj => obj.id == action.payload.questionNo));
       state.current_qn = state.data[question_index];
+      if(action.payload.answer === state.current_qn.correct_answer){
+        state.current_qn.answered_correctly = true;
+        state.answered_correctly++;
+      }else{
+        state.current_qn.answered_correctly = false;
+      }
+      state.current_qn.answered = true;
+      state.answered++;
+      console.log(state.current_qn.correct_answer)
     }
   },
   extraReducers: (builder) => {
