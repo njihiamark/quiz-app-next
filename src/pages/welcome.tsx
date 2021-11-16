@@ -64,7 +64,7 @@ const WelcomePage: NextPage = () => {
             <div className="w-33-auto">
                 <WelcomeHeader />
                 <form onSubmit={handleSubmit}>
-                    <Select iconUrl="/images/trophy-icon.svg" label="Difficulty" theme="dark" value={Difficulty} options={["easy", "hard"]} onChange={handleDifficultyChange} />
+                    <Select iconUrl="/images/trophy-icon.svg" label="Difficulty" theme="dark" value={Difficulty} options={["easy", "medium", "hard"]} onChange={handleDifficultyChange} />
                     {EmptyDifficulty && <div className="input-message">*Please select an option</div>}
                     <div className="mb-1"></div>
                     <Input type="number" placeholder="Enter amount" iconUrl="/images/star-icon.svg" label="Amount" theme="dark" value={Amount} onChange={handleAmountChange} />

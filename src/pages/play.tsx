@@ -22,7 +22,8 @@ const PlayPage: NextPage = () => {
         pending,
         difficulty_setting,
         amount_setting,
-        current_qn
+        current_qn,
+        total_qns
     } = useAppSelector(selectQuestions);
     useEffect(() => {
         if (error) {
@@ -34,10 +35,12 @@ const PlayPage: NextPage = () => {
         if (data.length > 0 && !pending) {
             dispatch(showQuestion({ questionNo: CurrentQn, answer: "" }));
         }
-    }, [data, pending]);
+        if(data.length > 0 && AnsweredQn === total_qns){
+            router.push('/score', undefined, { shallow: true });
+        }
+    }, [pending, CurrentQn, AnsweredQn]);
 
     const handleAnswering = (answer:string) => {
-        console.log("clicked");
         setCurrentQn(CurrentQn + 1);
         setAnsweredQn(AnsweredQn + 1);
         dispatch(showQuestion({ questionNo: CurrentQn, answer: answer }));
@@ -48,11 +51,11 @@ const PlayPage: NextPage = () => {
             <div className="w-33-auto">
                 <PlayHeader difficulty_setting={difficulty_setting} />
                 <div className="mb-2"></div>
-                <Progress current_qn={AnsweredQn} total_qns={amount_setting} qn_text={current_qn.question} />
+                <Progress current_qn={AnsweredQn} total_qns={amount_setting} qn_text={current_qn?.question} />
                 {data.length > 0 && !pending ? <div>
-                    <Button label="true" type="filled" theme="light" onClick={(e) => { e.preventDefault(); handleAnswering("True"); }} />
+                    <Button label="true" type="filled" theme="light" onClick={() => handleAnswering("True")} />
                     <div className="mb-2"></div>
-                    <Button label="false" type="outline" theme="light" onClick={(e) => { e.preventDefault(); handleAnswering("False"); }} />
+                    <Button label="false" type="outline" theme="light" onClick={() => handleAnswering("False")} />
                     <div className="mb-1"></div>
                 </div>: <div>loading...</div>}
 

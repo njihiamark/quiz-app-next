@@ -69,7 +69,6 @@ export const getQuestions = createAsyncThunk(
       `https://opentdb.com/api.php?amount=${Amount}&difficulty=${Difficulty}&type=boolean`
     );
 
-
     let count = 0;
     const processedData = response.data.results?.map((item) => {
       item.id = ++count;
@@ -95,15 +94,17 @@ export const questionSlice = createSlice({
     showQuestion: (state, action: PayloadAction<QuizAnswer >) => {
       const question_index = state.data.findIndex((obj => obj.id == action.payload.questionNo));
       state.current_qn = state.data[question_index];
-      if(action.payload.answer === state.current_qn.correct_answer){
-        state.current_qn.answered_correctly = true;
-        state.answered_correctly++;
-      }else{
-        state.current_qn.answered_correctly = false;
+      if(action.payload.answer){
+        if(action.payload.answer === state.current_qn.correct_answer){
+          state.current_qn.answered_correctly = true;
+          state.answered_correctly++;
+        }else{
+          state.current_qn.answered_correctly = false;
+        }
+        state.current_qn.answered = true;
+        state.answered++;
       }
-      state.current_qn.answered = true;
-      state.answered++;
-      console.log(state.current_qn.correct_answer)
+      
     }
   },
   extraReducers: (builder) => {
