@@ -5,12 +5,11 @@ import Link from 'next/link'
 import cssRatingClasses from '../utils/cssRatingClasses';
 
 type Props = {
-    page_url: string,
     score: number,
     max_score: number,
 }
 
-const Score = ({ page_url = "welcome", score = 8, max_score = 10 }: Props) => {
+const Score = ({score = 8, max_score = 10 }: Props) => {
     const score_percentage = (score / max_score) * 100;
     const rounded_percentage = Math.round(score_percentage);
     const nearest_ten_percentage = Math.round(rounded_percentage/ 10) * 10;
