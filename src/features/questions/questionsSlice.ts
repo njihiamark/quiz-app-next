@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { AppState, AppThunk } from "../../app/store";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ export type Question = {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
-  id?: string;
+  id?: number;
   answered_correctly?: boolean;
   answered?: boolean;
 };
@@ -25,7 +25,18 @@ export type QuestionsState = {
   amount_setting: number;
   pending: boolean;
   error: boolean;
+  current_qn?: Question
 };
+
+type QuizSetting = {
+  difficulty_setting: string;
+  amount_setting: number;
+}
+
+type QuizAnswer = {
+  questionNo: number;
+  answer: string;
+}
 
 
 //initialize the initial state
@@ -38,17 +49,25 @@ const initialState: QuestionsState = {
   amount_setting: 0,
   pending: false,
   error: false,
+  current_qn: {
+    category: "",
+    type: "",
+    difficulty: "",
+    question: "",
+    correct_answer: "",
+    incorrect_answers: [
+    ]
+  }
 };
 
 //function to get the questions from third party API
 export const getQuestions = createAsyncThunk(
   "questions/getQuestions",
   async (settingsObject: { Amount: number, Difficulty: string }) => {
-    const {Amount, Difficulty} = settingsObject;
+    const { Amount, Difficulty } = settingsObject;
     const response = await axios.get(
       `https://opentdb.com/api.php?amount=${Amount}&difficulty=${Difficulty}&type=boolean`
     );
-
 
     let count = 0;
     const processedData = response.data.results?.map((item) => {
@@ -67,16 +86,37 @@ export const getQuestions = createAsyncThunk(
 export const questionSlice = createSlice({
   name: "question",
   initialState,
-  reducers: {},
+  reducers: {
+    quizSettings: (state, action: PayloadAction<QuizSetting>) => {
+      state.difficulty_setting = action.payload.difficulty_setting;
+      state.amount_setting = action.payload.amount_setting;
+    },
+    showQuestion: (state, action: PayloadAction<QuizAnswer >) => {
+      const question_index = state.data.findIndex((obj => obj.id == action.payload.questionNo));
+      state.current_qn = state.data[question_index];
+      if(action.payload.answer){
+        if(action.payload.answer === state.current_qn.correct_answer){
+          state.current_qn.answered_correctly = true;
+          state.answered_correctly++;
+        }else{
+          state.current_qn.answered_correctly = false;
+        }
+        state.current_qn.answered = true;
+        state.answered++;
+      }
+      
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getQuestions.pending, (state) => {
         state.pending = true;
       })
-      .addCase(getQuestions.fulfilled, (state, {payload} ) => {
+      .addCase(getQuestions.fulfilled, (state, { payload }) => {
         // When the API call is successful and we get some data,the data becomes the `fulfilled` action payload
         state.pending = false;
         state.data = payload;
+        state.total_qns = payload.length;
 
       })
       .addCase(getQuestions.rejected, (state) => {
@@ -85,6 +125,12 @@ export const questionSlice = createSlice({
       });
   },
 });
+
+// Here we are just exporting the actions from this slice, so that we can call them anywhere in our app.
+export const {
+  quizSettings,
+  showQuestion
+} = questionSlice.actions;
 
 //this helps us get the questions state anywere in the app
 export const selectQuestions = (state: AppState) => state.questions;

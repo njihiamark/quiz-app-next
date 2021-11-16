@@ -24,9 +24,7 @@ const Score = ({ page_url = "welcome", score = 8, max_score = 10 }: Props) => {
                     {max_score == 10 ? <span> You scored <span className={styles["score-info__actual"]}>{score == 10 ? 10 : "0"+score }</span>/<span className={styles["score-info__base"]}>{max_score}</span></span> : <span> You scored <span className={styles["score-info__actual"]}>{rounded_percentage}%</span></span>}
                 </div>
                 <div className={styles["score-info__cross"]}>
-                    <Link href={page_url}>
-                        <Image src="/images/white-cross.svg" width={17} height={17} />
-                    </Link>
+                    <Image src="/images/white-cross.svg" width={17} height={17} />
                 </div>
             </div>
             <div className={styles["star-ratings"] + " " + styles[cssRatingClasses(rounded_percentage, nearest_ten_percentage)]}></div>

@@ -6,6 +6,7 @@
   border-radius: 3px;
   overflow: hidden;
   .progress__bar {
+    transition: all 0.5s ease;
     display: block;
     height: 100%;
     background: linear-gradient(180deg, #ff7878 0%, #ff7878 100%);
@@ -13,15 +14,25 @@
   }
 }
 
-.progress-label{
-    line-height: 1.5;
-    font-size: 0.9rem;
-    font-weight: 500;
-    .progress-label__status{
-        font-size: 1.2rem;
-        color: #ff7878;
-        font-weight: 700;
-    }
+.progress-label {
+  line-height: 1.5;
+  font-size: 0.9rem;
+  font-weight: 500;
+  .progress-label__status {
+    font-size: 1.2rem;
+    color: #ff7878;
+    font-weight: 700;
+  }
 }
 
+.question-text {
+  font-size: 1.5rem;
+  text-align: center;
+}
 
+@media only screen and (max-width: 767px) {
+  .question-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+}

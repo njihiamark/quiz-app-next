@@ -5,7 +5,7 @@ type Props = {
     label?: string,
     type?: string,
     theme?: string,
-    onClick?: (event: MouseEvent) => void;
+    onClick?: (event?: MouseEvent, value?: any) => void;
   }
 
 const Button = ({ label="Btn", type = 'filled', theme="dark", onClick= (event: MouseEvent) => {}}: Props) => (
