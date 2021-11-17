@@ -6,14 +6,11 @@ import QuestionsScore from "../features/questions/QuestionsScore";
 
 
 const ScorePage: NextPage = () => {
-    
-    
     return (
         <Layout theme="dark">
             <QuestionsScore />
         </Layout>
     );
-
 }
 
 export default ScorePage;
