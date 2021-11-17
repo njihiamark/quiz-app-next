@@ -1,12 +1,18 @@
 .score-card {
-  padding: 20px;
+  height: 4.5rem;
+  padding: 1rem 1rem 1rem 1.7rem;
   margin-bottom: 15px;
   font-size: 0.9rem;
-  border-radius: 1rem;
+  border-radius: 0.9rem;
   display: flex;
   align-items: center;
   color: #464FAC;
   font-weight: 500;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: left;
+  font-weight: 400;
   &--pass{
     background-color: #ffffff;
   }

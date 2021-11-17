@@ -8,11 +8,14 @@ type Props = {
     status: boolean
 }
 
-const ScoreCard =({desc = "", status = false}: Props) => (
-    <div className={styles["score-card"]+` ${status ? styles["score-card--pass"] : styles["score-card--fail"]}`} >
-        {ReactHtmlParser(desc)}
-        <span className={styles["score-card__mark"]}>{status ? <Image src="/images/tick.svg" width={20} height={15} layout="fixed" /> : <Image src="/images/cross.svg" width={15} height={15} layout="fixed" />}</span>
-    </div>
+const ScoreCard = ({ desc = "", status = false }: Props) => (
+    
+        <button className={styles["score-card"] + ` ${status ? styles["score-card--pass"] : styles["score-card--fail"]}`} >
+            {ReactHtmlParser(desc)}
+            <span className={styles["score-card__mark"]}>{status ? <Image src="/images/tick.svg" width={18} height={15} layout="fixed" /> : <Image src="/images/cross.svg" width={15} height={15} layout="fixed" />}</span>
+        </button>
+
+
 );
 
 export default ScoreCard;

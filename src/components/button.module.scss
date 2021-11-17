@@ -12,6 +12,7 @@
   text-align: center;
   align-self: center;
   text-transform: uppercase;
+  transition: all 0.1s ease;
   &--dark {
     &--filled {
       background: -webkit-gradient(
