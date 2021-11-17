@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import PlayHeader from '../components/PlayHeader';
 import { selectQuestions, showQuestion } from '../features/questions/questionsSlice';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
-import noDataGohome from '../utils/noDataGohome';
+import noDataGohome from '../utils/noDataGoHome';
 
 
 const PlayPage: NextPage = () => {

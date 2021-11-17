@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import Score from '../components/Score';
 import { selectQuestions, resetState } from '../features/questions/questionsSlice';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
-import noDataGohome from '../utils/noDataGohome';
+import noDataGohome from '../utils/noDataGoHome';
 
 const ScorePage: NextPage = () => {
     const dispatch = useAppDispatch();
