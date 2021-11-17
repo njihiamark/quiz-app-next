@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import React from "react";
 
 import Layout from "../components/Layout";
-import SetQuestions from "../features/questions/SetQuestions";
 import WelcomeHeader from "../components/WelcomeHeader";
+import SetQuestions from '../features/questions/SetQuestions';
 
 
 const IndexPage: NextPage = () => {
