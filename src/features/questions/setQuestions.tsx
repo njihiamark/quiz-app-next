@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getQuestions, selectQuestions, quizSettings } from "./questionsSlice";
 import { useRouter } from "next/router";
 
-function SetQuestions(){
+const SetQuestions: React.FC = () => {
   const [Amount, setAmount] = useState<number>(0);
   const [Difficulty, setDifficulty] = useState<string>("");
   const [MaxedAmount, setMaxedAmount] = useState<boolean>(false);
