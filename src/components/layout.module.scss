@@ -7,6 +7,9 @@
   &--dark {
     background: #4751c0;
     color: #ffffff;
+    *:focus {
+      border: 3px solid #2ecc71;
+    }
     .pattern {
       position: absolute;
       &__pattern1 {
@@ -54,6 +57,11 @@
   &--light {
     background: #ffffff;
     color: #464fac;
+    *:focus {
+      background: #2c3e50;
+      border: 1px solid #2c3e50;
+      color:#ffffff;
+    }
 
     .pattern {
       position: absolute;
