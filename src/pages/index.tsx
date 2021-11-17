@@ -3,14 +3,14 @@ import React from "react";
 
 import Layout from "../components/Layout";
 import WelcomeHeader from "../components/WelcomeHeader";
-// import SetQuestions from "../features/questions/SetQuestions";
+import SetQuestions from "../features/questions/SetQuestions";
 
 const IndexPage: NextPage = () => {
   return (
     <Layout theme="dark">
       <div className="w-33-auto">
         <WelcomeHeader />
-        {/* <SetQuestions /> */}
+        <SetQuestions />
       </div>
     </Layout>
   );
