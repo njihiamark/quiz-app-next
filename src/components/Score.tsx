@@ -5,12 +5,12 @@ import Link from 'next/link'
 import cssRatingClasses from '../utils/cssRatingClasses';
 
 type Props = {
-    page_url: string,
     score: number,
     max_score: number,
+    close_func?: ()=>void
 }
 
-const Score = ({ page_url = "welcome", score = 8, max_score = 10 }: Props) => {
+const Score = ({score = 8, max_score = 10, close_func = ()=>{}}: Props) => {
     const score_percentage = (score / max_score) * 100;
     const rounded_percentage = Math.round(score_percentage);
     const nearest_ten_percentage = Math.round(rounded_percentage/ 10) * 10;
@@ -23,7 +23,7 @@ const Score = ({ page_url = "welcome", score = 8, max_score = 10 }: Props) => {
                     </div>
                     {max_score == 10 ? <span> You scored <span className={styles["score-info__actual"]}>{score == 10 ? 10 : "0"+score }</span>/<span className={styles["score-info__base"]}>{max_score}</span></span> : <span> You scored <span className={styles["score-info__actual"]}>{rounded_percentage}%</span></span>}
                 </div>
-                <div className={styles["score-info__cross"]}>
+                <div className={styles["score-info__cross"]} onClick={close_func}>
                     <Image src="/images/white-cross.svg" width={17} height={17} />
                 </div>
             </div>

@@ -49,8 +49,13 @@ a {
   margin: 0 auto;
 }
 
+.w-50-auto{
+  width:50% !important;
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 767px) {
-  .w-33-auto{
+  .w-33-auto, .w-50-auto{
     width:100% !important;
   }
 }

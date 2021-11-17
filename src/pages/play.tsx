@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import PlayHeader from '../components/PlayHeader';
 import { selectQuestions, showQuestion } from '../features/questions/questionsSlice';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
+import noDataGohome from '../utils/noDataGohome';
 
 
 const PlayPage: NextPage = () => {
@@ -26,15 +27,11 @@ const PlayPage: NextPage = () => {
         total_qns
     } = useAppSelector(selectQuestions);
     useEffect(() => {
-        if (error) {
-            router.push('/welcome', undefined, { shallow: true })
-        }
-        if (!data.length && !pending) {
-            router.push('/welcome', undefined, { shallow: true })
-        }
+        noDataGohome(error, data, pending, router);
         if (data.length > 0 && !pending) {
             dispatch(showQuestion({ questionNo: CurrentQn, answer: "" }));
         }
+        
         if(data.length > 0 && AnsweredQn === total_qns){
             router.push('/score', undefined, { shallow: true });
         }

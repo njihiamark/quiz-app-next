@@ -91,20 +91,38 @@ export const questionSlice = createSlice({
       state.difficulty_setting = action.payload.difficulty_setting;
       state.amount_setting = action.payload.amount_setting;
     },
-    showQuestion: (state, action: PayloadAction<QuizAnswer >) => {
+    showQuestion: (state, action: PayloadAction<QuizAnswer>) => {
       const question_index = state.data.findIndex((obj => obj.id == action.payload.questionNo));
       state.current_qn = state.data[question_index];
-      if(action.payload.answer){
-        if(action.payload.answer === state.current_qn.correct_answer){
+      if (action.payload.answer) {
+        if (action.payload.answer === state.current_qn.correct_answer) {
           state.current_qn.answered_correctly = true;
           state.answered_correctly++;
-        }else{
+        } else {
           state.current_qn.answered_correctly = false;
         }
         state.current_qn.answered = true;
         state.answered++;
       }
-      
+    },
+    resetState: (state) => {
+      state.data= [];
+      state.total_qns= 0;
+      state.answered= 0;
+      state.answered_correctly= 0;
+      state.difficulty_setting= "easy";
+      state.amount_setting= 0;
+      state.pending= false;
+      state.error= false;
+      state.current_qn= {
+        category: "",
+        type: "",
+        difficulty: "",
+        question: "",
+        correct_answer: "",
+        incorrect_answers: [
+        ]
+      };
     }
   },
   extraReducers: (builder) => {
@@ -129,7 +147,8 @@ export const questionSlice = createSlice({
 // Here we are just exporting the actions from this slice, so that we can call them anywhere in our app.
 export const {
   quizSettings,
-  showQuestion
+  showQuestion,
+  resetState
 } = questionSlice.actions;
 
 //this helps us get the questions state anywere in the app
