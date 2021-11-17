@@ -106,15 +106,15 @@ export const questionSlice = createSlice({
       }
     },
     resetState: (state) => {
-      state.data= [];
-      state.total_qns= 0;
-      state.answered= 0;
-      state.answered_correctly= 0;
-      state.difficulty_setting= "easy";
-      state.amount_setting= 0;
-      state.pending= false;
-      state.error= false;
-      state.current_qn= {
+      state.data = [];
+      state.total_qns = 0;
+      state.answered = 0;
+      state.answered_correctly = 0;
+      state.difficulty_setting = "easy";
+      state.amount_setting = 0;
+      state.pending = false;
+      state.error = false;
+      state.current_qn = {
         category: "",
         type: "",
         difficulty: "",
