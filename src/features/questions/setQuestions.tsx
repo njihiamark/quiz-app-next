@@ -88,7 +88,7 @@ const SetQuestions: React.FC = () => {
               *Please input a value greater than 0
             </div>
           )}
-          <div className="mb-4"></div>
+          <div className="mb-2"></div>
           <Button label="play" type="filled" theme="dark" />
           <div className="mb-1"></div>
           {error && <div>There was an error please try again</div>}

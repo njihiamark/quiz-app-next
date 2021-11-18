@@ -7,7 +7,7 @@ const WelcomeHeader = () => (
         <div className={styles["header-title"]}>Welcome to the</div>
         <div className="mb-1"></div>
         <Image src="/images/trivia-logo.png" layout="responsive" width={100} height={40}/>
-        <div className="mb-4"></div>
+        <div className="mb-2"></div>
     </div>
 );
 
