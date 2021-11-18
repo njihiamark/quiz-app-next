@@ -53,6 +53,10 @@ The pages folder contains the routes of the application. The files inside this f
 
 This folder contains the global css file, in this file we have global styles that can be used all over the app. 
 
+## 6. utils
+
+Inside this folder we have helper functions that can be used across the app or de-clutter our code.
+
 
 # Demo
 
