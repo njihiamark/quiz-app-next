@@ -1,23 +1,63 @@
-# Redux Toolkit TypeScript Example
+# TRIVIA CHALLENGE
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+This is a small application to show how I would structure a React and Redux project.
 
-The **Redux Toolkit** is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension). This example demonstrates each of these features with Next.js
 
-## Deploy your own
+# TECHNOLOGIES USED
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+The technologies used were:-
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
+ - **Next.js with Typescript**
+ - **Redux Toolkit instead of just Redux**
+ - **CSS Modules**
 
-## How to use
+## Reasons behind the above choices
+I could have easily used used **Create React App** but chose to use **Next.js** since it came with configurations out of the box that met the requirements of the project. These configurations were a router which would be sufficient for the project, out of the box support for **CSS Modules** and **Sass**, out of the box image optimization.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+I went for **Redux Toolkit** because it seemed to reduce the **Redux** boilerplate to get started and also because it is now the recommended way to write **Redux** applications.
 
-```bash
-npx create-next-app --example with-redux with-redux-app
-# or
-yarn create next-app --example with-redux with-redux-app
-```
+I considered using **styled-components** but chose **CSS Modules** because I could use CSS pre-processors, clean code as CSS and JS/TS code are separated, from my research **CSS Modules** seemed to provide faster rendering than **styled-componenents** but injecting JS logic into CSS was really tempting.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+# Project Structure
+
+I partioned the application into the following major areas inside the src folder:-
+
+ 1. app
+ 2. components
+ 3. features
+ 4. pages
+ 5. styles
+ 6. utils
+
+I will discuss each of the above in the following sections.
+
+## 1. App
+
+Inside this folder is the redux store and commonly used hooks.
+
+## 2. Components
+
+Inside this folder are UI components, it includes simple UI components like buttons to complex ones like progress bars. The CSS module files to the corresponding componenets are also found here.
+
+## 3. Features
+
+Inside this folder are folders relating to the features we have in our application and the redux slices involved with the feature's state. In our case, we have a **questions** folder since our app has a quiz feature. In the **questions** folder, we have a slice to define the state structure of the questions and the reducers and actions to manipulate the questions state. 
+
+We also have other files defining feature interactions for the questions. These feature interactions are setting the quiz questions, answering the quiz questions and scoring the quiz. These use the components in the **components** folder as building blocks. 
+
+## 4. Pages
+
+The pages folder contains the routes of the application. The files inside this folder use the components in the **features** folder as building blocks.
+
+## 5. Styles
+
+This folder contains the global css file, in this file we have global styles that can be used all over the app. 
+
+
+# Demo
+
+The demo to this application is hosted on Heroku. I did not turn off **Redux Devtools** so that one can be able to see the state and its changes.
+
+You can view the demo of the app **[here](https://quiz-app-next-22.herokuapp.com/)**
+
+Thank you!!
